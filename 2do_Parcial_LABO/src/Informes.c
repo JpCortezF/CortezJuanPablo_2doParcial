@@ -43,15 +43,21 @@ int printfListLibrary(LinkedList* pArrayLibrary,LinkedList* pArrayOrigen)
 	eCompras* aLibrary;
 	if(pArrayLibrary!=NULL)
 	{
-		amount=ll_len(pArrayLibrary);
-		printHeadboar();
-		for(int i=0; i<amount;i++)
+		if(!ll_isEmpty(pArrayLibrary))
 		{
-			aLibrary = ll_get(pArrayLibrary, i);
-			printOneLibrary(aLibrary,pArrayOrigen);
+			amount=ll_len(pArrayLibrary);
+			printHeadboar();
+			for(int i=0; i<amount;i++)
+			{
+				aLibrary = ll_get(pArrayLibrary, i);
+				printOneLibrary(aLibrary,pArrayOrigen);
+			}
+			puts("|=====================================================================================================");
+			utn_getNumberInt(&amount,"\nIngrese '1' para volver al menu principal: ","\nERROR.",1,1,200);
 		}
-		puts("|=====================================================================================================");
-		utn_getNumberInt(&amount,"\nIngrese '1' para volver al menu principal: ","\nERROR.",1,1,200);
+		else{
+			puts("\n-> Primero tenes que hacer la carga del archivo.");
+		}
 		retorno=0;
 	}
 	return retorno;

@@ -57,8 +57,14 @@ int controller_totalPurchase(LinkedList* pArrayLibrary, LinkedList* pArrayResult
 
 	if(pArrayLibrary!=NULL)
 	{
-		pArrayResultado = ll_map(pArrayLibrary, set_TotalPurchease);
-		puts("\n-> Compras calculadas correctamente!!");
+		if(!ll_isEmpty(pArrayLibrary))
+		{
+			pArrayResultado = ll_map(pArrayLibrary, set_TotalPurchease);
+			puts("\n-> Compras calculadas correctamente!!");
+		}
+		else{
+			puts("\n-> Primero tenes que hacer la carga del archivo.");
+		}
 		retorno=0;
 	}
 	return retorno;
@@ -79,7 +85,7 @@ int controller_filterAndSaveByType(char* path,LinkedList* pArrayLibrary,LinkedLi
 	eCompras* buyFilter = NULL;
 	if(pArrayLibrary!=NULL)
 	{
-		if(!(ll_isEmpty(pArrayLibrary)))
+		if(!ll_isEmpty(pArrayLibrary))
 		{
 			len = ll_len(pArrayLibrary);
 			if((pFile=fopen(path,"w"))!=NULL)
@@ -118,9 +124,12 @@ int controller_filterAndSaveByType(char* path,LinkedList* pArrayLibrary,LinkedLi
 					fprintf(pFile,"%d,%s,%d,%.2f,%d,%.2f\n",buyCode,description,origen,unitaryPrice,amount,totalPurchase);
 				}
 				printfListLibrary(pArrayFilter, pArrayOrigen);
+				fclose(pFile);
 			}
 		}
-		fclose(pFile);
+		else{
+			puts("\n-> Primero tenes que hacer la carga del archivo.");
+		}
 		retorno=0;
 	}
 	return retorno;
@@ -164,7 +173,7 @@ int controller_ComprasSaveAsTxt(char* path, LinkedList* pArrayLibrary)
 			}
 		}
 		else{
-			puts("\nPrimero tenes que hacer la carga del archivo .csv...");
+			puts("\n-> Primero tenes que hacer la carga del archivo.");
 		}
 		retorno=0;
 		fclose(pFile);
@@ -177,9 +186,15 @@ int controller_ListOrderByDescription(LinkedList* pArrayLibrary, LinkedList* pAr
 
 	if(pArrayLibrary!=NULL)
 	{
-		ll_sort(pArrayLibrary, compareByDescription, 1);
-		printfListLibrary(pArrayLibrary,pArrayOrigen);
-		puts("\n-> Lista ordenada de manera ascendete...");
+		if(!ll_isEmpty(pArrayLibrary))
+		{
+			ll_sort(pArrayLibrary, compareByDescription, 1);
+			printfListLibrary(pArrayLibrary,pArrayOrigen);
+			puts("\n-> Lista ordenada de manera ascendete...");
+		}
+		else{
+			puts("\n-> Primero tenes que hacer la carga del archivo.");
+		}
 		retorno=0;
 	}
 	return retorno;
