@@ -22,7 +22,6 @@ int main(void) {
     char file[10];
     LinkedList* pArrayLibrary = ll_newLinkedList();
     LinkedList* pArrayOrigen = ll_newLinkedList();
-    LinkedList* pArrayResultado = NULL;
     LinkedList* pArrayFilter = NULL;
     do
      {
@@ -63,7 +62,6 @@ int main(void) {
      }while(option!=7);
     ll_deleteLinkedList(pArrayLibrary);
     ll_deleteLinkedList(pArrayOrigen);
-    ll_deleteLinkedList(pArrayResultado);
     ll_deleteLinkedList(pArrayFilter);
 	return 0;
 }
