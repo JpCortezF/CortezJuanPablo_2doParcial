@@ -20,10 +20,9 @@ int controller_chargeOrigenModoTexto(char* path, LinkedList* pArrayOrigen);
 /**
  * Le asigno a pArrayResultado el retorno de 'll_map'
  * @param pArrayLibrary puntero a la lista LinkedList
- * @param pArrayResultado puntero a la lista LinkedList
  * @return retona -1 si la lista que le llega es NULL y 0 si funciono correctamente
  */
-int controller_totalPurchase(LinkedList* pArrayLibrary, LinkedList* pArrayResultado);
+int controller_totalPurchase(LinkedList* pArrayLibrary);
 
 /**
  * Pregunta al usuario que origen quiere filtrar y luego lo muestra

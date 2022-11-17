@@ -48,7 +48,7 @@ int main(void) {
 				printfListLibrary(pArrayLibrary,pArrayOrigen);
 				break;
 			case 3:
-				controller_totalPurchase(pArrayLibrary,pArrayResultado);
+				controller_totalPurchase(pArrayLibrary);
 				break;
 			case 4:
 				controller_filterAndSaveByType("filtrados.csv",pArrayLibrary,pArrayFilter,pArrayOrigen);

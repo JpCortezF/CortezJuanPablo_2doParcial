@@ -51,7 +51,7 @@ int controller_chargeOrigenModoTexto(char* path, LinkedList* pArrayOrigen)
 	return retorno;
 }
 
-int controller_totalPurchase(LinkedList* pArrayLibrary, LinkedList* pArrayResultado)
+int controller_totalPurchase(LinkedList* pArrayLibrary)
 {
 	int retorno=-1;
 
@@ -59,7 +59,7 @@ int controller_totalPurchase(LinkedList* pArrayLibrary, LinkedList* pArrayResult
 	{
 		if(!ll_isEmpty(pArrayLibrary))
 		{
-			pArrayResultado = ll_map(pArrayLibrary, set_TotalPurchease);
+			pArrayLibrary = ll_map(pArrayLibrary, set_TotalPurchease);
 			puts("\n-> Compras calculadas correctamente!!");
 		}
 		else{
